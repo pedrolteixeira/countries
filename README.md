@@ -7,7 +7,7 @@ $ npm install  --save --legacy-peer-deps
 # 3- Executar aplicação
 $ npm start
 
-# 3- Abrir url
+# 4- Abrir url
 http://localhost:4200/
 
 

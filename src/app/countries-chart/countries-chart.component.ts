@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, HostListener } from '@angular/core';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { CountriesService } from '../services/countries.service';
+import { Country } from '../models/country.model';
 
 @Component({
   selector: 'app-countries-chart',
@@ -12,8 +13,8 @@ import { CountriesService } from '../services/countries.service';
   styleUrl: './countries-chart.component.css'
 })
 export class CountriesChartComponent {
-  countries: any = [];
-  populacaoPorRegiao: { [key: string]: number } = {};
+  countries: Country[] = [];
+  populacaoPorRegiao: any = {};
   single: { name: string; value: number }[] = [];
   loading: boolean = true;
 
@@ -49,7 +50,7 @@ export class CountriesChartComponent {
   }
 
   calcularPopulacaoPorRegiao(): void {
-    this.populacaoPorRegiao = this.countries.reduce((total: { [key: string]: number }, country: { region: string; population: number }) => {
+    this.populacaoPorRegiao = this.countries.reduce((total: any, country: any) => {
       let region = country.region;
       if (!total[region]) {
         total[region] = 0;
